@@ -1,0 +1,27 @@
+{
+  "name": "eco-remi/kirby-auctions",
+  "description": "Auction synchronisation system",
+  "version": "1.0.1",
+  "license": "GNU3",
+  "authors": [
+    {
+      "name": "Rémi Dubrulle",
+      "email": "je-suis@e-responsable.com"
+    }
+  ],
+  "require": {
+    "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
+    "getkirby/composer-installer": "^1.2",
+    "symfony/serializer-pack": "^1.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Auction\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "getkirby/composer-installer": true
+    }
+  }
+}

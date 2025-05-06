@@ -1,0 +1,7 @@
+{
+  "jobs": [
+    {
+      "command": "00 06 * * * php site/plugins/kirby-auctions/run-sync.php"
+    }
+  ]
+}
