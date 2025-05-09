@@ -1,0 +1,37 @@
+{
+    "id": "demo-order",
+    "transactionUuid": "6d96419e2134480bad0fac4961d4ae9b",
+    "status": "NEW",
+    "amount": 10000,
+    "currency": "EUR",
+    "customer": {
+        "email": "john@doe.com",
+        "reference": "customer_681bdcf9b18bc",
+        "language": "fr",
+        "title": null,
+        "firstName": "John",
+        "lastName": "Doe",
+        "category": "PRIVATE",
+        "address": "test address",
+        "zipCode": "73000",
+        "city": "test city",
+        "phoneNumber": "0123456789",
+        "country": "FR"
+    },
+    "orderDetails": [
+        {
+            "reference": "09-73001-202405071446440013-0011",
+            "amount": 3000,
+            "label": "DINKY TOYS FRANCE. Autobus parisien Somua Panhard, trois cammion",
+            "qty": 1
+        },
+        {
+            "reference": "09-73001-202405071446440011-0009",
+            "amount": 3000,
+            "label": "DINKY TOYS ENGLAND. Ref : 955. Camion de pompier (petites usures",
+            "qty": 1
+        }
+    ],
+    "createdAt": "2025-05-07 22:21:45",
+    "updatedAt": "2025-05-09 12:08:45"
+}
