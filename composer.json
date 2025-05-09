@@ -1,7 +1,7 @@
 {
   "name": "eco-remi/kirby-auctions",
   "description": "Auction synchronisation system",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "GNU3",
   "authors": [
     {
