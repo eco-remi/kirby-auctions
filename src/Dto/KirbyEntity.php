@@ -34,10 +34,8 @@ class KirbyEntity
      * @param KirbyLot[] $kirbyLot
      * @return void
      */
-    public static function writeKirbyFormat(array $kirbyLot): void
+    public static function writeKirbyFormat(array $kirbyLot, $idVente = 0): void
     {
-        // write kirby format
-        $idVente = 6; // todo : get last
         $dirPath = KirbyVente::initVente($idVente);
 
         // write item.txt
