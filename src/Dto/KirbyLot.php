@@ -7,8 +7,9 @@ use Kirby\Uuid\Uuid;
 class KirbyLot
 {
     public ?string $id = null;
+    public ?string $LotId = null;
     public ?string $Title = null;
-    public ?array $Cover = [];
+    public ?array $Cover = null;
     public ?array $Carouselimages = [];
     public ?string $Pricerangelow = null;
     public ?string $Pricerangehigh = null;
@@ -33,6 +34,7 @@ class KirbyLot
     {
         $kirbyLot = new KirbyLot();
         $kirbyLot->id = $lot->identifiant;
+        $kirbyLot->LotId = $lot->identifiant;
         $kirbyLot->Uuid = Uuid::generate();
         $kirbyLot->Title = 'Lot n° ' . $lot->identifiant;
         $kirbyLot->Description = $lot->description;
@@ -46,11 +48,9 @@ class KirbyLot
                 $kirbyLot->Carouselimages[] = 'file://IHPr8VbsUzUEXpvp'; //$pictures;
 
                 if ($i === 0) {
-                    $kirbyLot->Cover[] = 'file://IHPr8VbsUzUEXpvp'; // $pictures
+                    $kirbyLot->Cover = ['file://IHPr8VbsUzUEXpvp']; // $pictures
                 }
             }
-        } else {
-            $kirbyLot->Cover[] = 'file://IHPr8VbsUzUEXpvp'; // $pictures
         }
 
         $kirbyLot->Date = date('Y-m-d H:00:00');
