@@ -3,6 +3,7 @@
 
 namespace Auction\Dto;
 
+use Auction\Service\HydrateStaticTrait;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 
 class Lot
@@ -24,16 +25,7 @@ class Lot
     public ?string $lien_externe = null;
     public ?array $images = ['image' =>[]];
 
-    public function hydrate(\stdClass|array $incomingData): self
-    {
-        foreach ($incomingData as $key => $value) {
-            $key = str_replace('-', '_', $key);
-            if (property_exists($this, $key)) {
-                $this->{$key} = $value;
-            }
-        }
-        return $this;
-    }
+    use HydrateStaticTrait;
 
     /**
      * @return Lot[]
@@ -42,13 +34,12 @@ class Lot
     {
         $encoder = new XmlEncoder();
         $dir = __DIR__ . '/../../../../../alpes-encheres-assets/';
-        $rawXml = $encoder->decode(file_get_contents($dir . 'export-full.xml'), 'xml');
+        $rawXml = file_get_contents($dir . 'export-full.xml');
+        $xmlDecoded = $encoder->decode($rawXml, 'xml');
 
         /** @var Lot[] $incomingLots */
-        $incomingLots = array_map(fn($lot) => (new Lot())->hydrate($lot),
-            $rawXml['lots']['lot']
+        return array_map(fn($lot) => (new Lot())->hydrate($lot),
+            $xmlDecoded['lots']['lot']
         );
-
-        return $incomingLots;
     }
 }
